@@ -1,0 +1,6 @@
+{
+    "mongoURI":"MONGO_URI",
+    "jwtSecret":"JWT_SECRET",
+    "STRIPE_PUBLIC_KEY":"STRIPE_PUBLIC_KEY",
+    "STRIPE_SECRET_KEY":"STRIPE_SECRET_KEY"
+}
