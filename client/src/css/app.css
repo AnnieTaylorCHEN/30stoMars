@@ -1,0 +1,37 @@
+@import-normalize;
+@import './fonts.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: 'Darker Grotesque', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'ETHLarge-ExpandedBlack', Arial, Helvetica, sans-serif;
+}
+
+p {
+    padding: 0.3em 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:visited {
+    color: inherit;
+}
+
+img {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}

@@ -1,0 +1,27 @@
+/* darker-grotesque-regular - latin */
+@font-face {
+    font-family: 'Darker Grotesque';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/darker-grotesque-v1-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Darker Grotesque Regular'), local('DarkerGrotesque-Regular'),
+         url('../fonts/darker-grotesque-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/darker-grotesque-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/darker-grotesque-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/darker-grotesque-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/darker-grotesque-v1-latin-regular.svg#DarkerGrotesque') format('svg'); /* Legacy iOS */
+  }
+
+  /*ETHLarge-ExpandedBlack*/
+  @font-face {
+    font-family: 'ETHLarge-ExpandedBlack';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/EthBlackExtended.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/EthBlackExtended.eot?#iefix') format("embedded-opentype"), /* IE6-IE8 */
+        url('../fonts/EthBlackExtended.woff2') format("woff2"), /* Super Modern Browsers */
+        url('../fonts/EthBlackExtended.woff') format("woff"), /* Modern Browsers */
+        url('../fonts/EthBlackExtended.ttf') format("truetype"), /* Safari, Android, iOS */
+        url('../fonts/EthBlackExtended.otf') format("opentype"), /* Open Type Font */
+        url('../fonts/EthBlackExtended.svg') format("svg"); /* Legacy iOS */
+  }
