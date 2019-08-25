@@ -5,7 +5,6 @@ const {check, validationResult} = require('express-validator')
 const auth = require('../../middleware/auth')
 
 const Post = require('../../models/Post')
-const Profile = require('../../models/Profile')
 const User = require('../../models/User')
 
 //route: POST echelon/posts
