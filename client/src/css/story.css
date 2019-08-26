@@ -1,0 +1,162 @@
+.story-intro {
+    position: relative;
+}
+
+.story-intro img {
+    width: 70%;
+}
+
+.story-intro-text {
+    position: absolute;
+    top: 45%;
+    right: 0;
+    font-size: 10em;
+    color: darkred;
+}
+
+.mars-bg {
+    position:relative;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.story-year {
+    position: absolute;
+    bottom: 0;
+    font-size: 10em;
+    color: white;
+    z-index: 1;
+}
+
+.story-year--right {
+    right: 0;
+}
+
+.story-year--left {
+    left: 10%;
+}
+
+.mars-bg img {
+    width: 65%;
+    padding: 4em;
+}
+
+.mars-bg2018 {
+    background-image: url('/imgs/mars-bg2018.jpg'); 
+}
+
+.mars-bg2013 {
+    background-image: url('/imgs/mars-bg2013.jpg');
+}
+
+.mars-bg2009 {
+    background-image: url('/imgs/mars-bg2009.png');
+}
+
+.mars-bg2005 {
+    background-image: url('/imgs/mars-bg2005.jpg');
+}
+
+.mars-bg2002 {
+    background-image: url('/imgs/mars-bg2002.png');
+}
+
+.mars-text {
+    color: white;
+    background-color: black;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 1rem 4rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mars-text--right{
+    right: 10%;
+    left: 60%; 
+}
+
+.mars-text--left {
+    left: 10%;
+    right: 60%;
+}
+
+.mars-img-right {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+@media (max-width: 1400px){
+    .story-year {
+        font-size: 4em;
+    }
+
+    .story-year--left {
+        left: 0;
+    }
+
+    .mars-text {
+        position: absolute;
+        top: 50%;
+        width: 80%;
+        height: 45%;
+    }
+    
+    .mars-text--right{
+        right: 0;
+        left: 20%;
+    }
+
+    .mars-text--left {
+        left: 0;
+        right: 20%;
+    }
+}
+
+@media (max-width: 1025px) and (min-width: 601px) {
+    .story-intro-text {
+        font-size: 4em;
+    }
+
+    .mars-text {
+        top: 40%;
+        height: 60%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px){
+    .story-year {
+        font-size: 2em;
+    }
+
+    .story-intro-text {
+        font-size: 2em;
+    }
+
+    .mars-bg img {
+        width: 100%;
+        padding: 0;
+    }
+
+    .mars-text {
+        position: static;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .mars-img-right {
+        position: static;
+    }
+
+}

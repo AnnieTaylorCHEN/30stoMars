@@ -2,6 +2,7 @@
 @import './fonts.css';
 @import './navbar.css';
 @import './home.css';
+@import './story.css';
 
 * {
     box-sizing: border-box;
