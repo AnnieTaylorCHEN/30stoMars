@@ -1,0 +1,150 @@
+.home__title {
+    font-size: 8em;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    color: darkred;
+    z-index: 1;
+}
+
+.home__video {
+    position: relative;
+    left: 20%;
+    outline: none;
+}
+
+.home__video-text{
+    font-size: 3em;
+    text-align: center;
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid darkred;
+    border-right: 5px solid darkred;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+
+.tour {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    margin-bottom: 5em;
+}
+
+.tour__item {
+    position: relative;
+    text-align: center;
+}
+
+.tour__text {
+    position: absolute;
+    font-family: 'ETHLarge-ExpandedBlack', Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em 2em;
+    width: 400px;
+    height: 300px;
+    color: white;
+    background-color: hsla(0, 100%, 27%, 0.7)
+}
+
+@media (max-width: 1800px) {
+    .home__title {
+        font-size: 5em;
+    }
+
+    .tour__text {
+        font-size: 1.7em;
+        width: 300px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .home__title {
+        font-size: 3em;
+    }
+
+    .home__video-text {
+        font-size: 1.5em;
+    }
+
+    .tour {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tour__text {
+        font-size: 1.4em;
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home__title {
+        font-size: 2em;
+        position: static;
+        width: 100%;
+    }
+
+    .home__video {
+        position: static;
+        width: 100%;
+    }
+
+    .home__video-text {
+        margin: 1em 0;
+    }
+
+    .arrow span {
+        width: 15px;
+        height: 15px;
+    }
+
+    .tour {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tour__text {
+        font-size: 1.2em;
+        width: 220px;
+        height: 170px;
+    }
+}

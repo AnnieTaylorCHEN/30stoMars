@@ -1,5 +1,7 @@
 @import-normalize;
 @import './fonts.css';
+@import './navbar.css';
+@import './home.css';
 
 * {
     box-sizing: border-box;
@@ -9,6 +11,8 @@
 html {
     font-family: 'Darker Grotesque', Arial, Helvetica, sans-serif;
     font-size: 18px;
+    max-width: 2000px;
+    margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
