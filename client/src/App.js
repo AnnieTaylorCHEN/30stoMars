@@ -5,7 +5,7 @@ import Navbar from './components/layout/Navbar'
 import Home from './components/Home'
 import Story from './components/Story'
 import Shop from './components/Shop'
-import Echelon from './components/Echelon'
+import Routes from './components/routing/Routes'
 
 //redux
 import { Provider } from 'react-redux'
@@ -36,7 +36,7 @@ const App = () => {
                   <Route exact path="/" component={Home} />
                   <Route path="/story" component={Story} />
                   <Route path="/shop" component={Shop} />
-                  <Route path="/echelon" component={Echelon} />
+                  <Route path="/echelon" component={Routes} />
               </Switch>   
           </Router>
     </Provider>
