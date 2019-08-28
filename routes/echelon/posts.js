@@ -168,9 +168,22 @@ router.put('/unlike/:id', auth, async (req, res) => {
     }
 })
 
+//route GET echelon/posts/comment/:id
+//note: get all the comments to a post
+//access: private
+router.get('/comment/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        res.json(post.comments)
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Server error')
+    }
+})
+
 
 //route POST echelon/posts/comment/:id
-//note: post a comment to a post
+//note: add a comment to a post
 //access: private
 router.post('/comment/:id',  auth,[
     check('text', 'Text is required.').not().isEmpty()

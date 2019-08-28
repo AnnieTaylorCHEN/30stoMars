@@ -1,0 +1,11 @@
+.dashboard {
+    padding: 1.5em 0;
+}
+.dashboard__title {
+    padding: 0 1rem;
+}
+
+.dashboard__nav {
+    display: flex;
+    flex-wrap: wrap;
+}

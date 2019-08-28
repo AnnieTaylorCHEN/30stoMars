@@ -88,7 +88,7 @@ router.get('/user/:user_id', async (req, res) => {
     }
 })
 
-//route: DELETE echelon/profile
+//route: DELETE echelon/profile/me
 //note: delete the profile
 //access: private
 router.delete('/me', auth, async (req, res)=> {

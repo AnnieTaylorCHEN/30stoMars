@@ -10,23 +10,23 @@ import Routes from './components/routing/Routes'
 //redux
 import { Provider } from 'react-redux'
 import store from './store'
-// import setAuthToken from './utils/setAuthToken'
-// import { loadUser } from ''
+import setAuthToken from './utils/setAuthToken'
+import { loadUser } from './actions/auth'
 
 //css
 import './css/app.css';
 
 //check if there is any user logged in, get their token if so
-// if (localStorage.token) {
-//     setAuthToken(localStorage.token)
-// }
+if (localStorage.token) {
+    setAuthToken(localStorage.token)
+}
 
 
 const App = () => {
 
-  // useEffect(()=> {
-  //   store.dispatch(loadUser())
-  // },[])
+  useEffect(()=> {
+    store.dispatch(loadUser())
+  },[])
 
   return (
       <Provider store={store}>

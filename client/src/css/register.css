@@ -1,0 +1,73 @@
+.echelon-register {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 
+    "title title form form form";
+    padding: 1em 4em;
+    gap: 2em;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.echelon-register__title {
+    grid-area: title;
+    font-size: 6em;
+}
+
+.echelon-register__form {
+    grid-area: form;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+}
+
+.form-input input {
+    font-size: 1.5em;
+    font-family: inherit;
+    width: 80%;
+    height: 60px;
+    border: 1px solid lightslategray;
+    outline: none;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+.echelon-login__title {
+    grid-area: title;
+    font-size: 6em;
+    color: darkred;
+}
+
+@media (max-width: 1500px) {
+
+    .echelon-register__title, .echelon-login__title {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 1025px) and (min-width: 601px) {
+
+    .echelon-register__title, .echelon-login__title {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 600px) {
+    .echelon-register {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "title"
+        "form";
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .echelon-register__title, .echelon-login__title {
+        font-size: 3em;
+        margin: 0;
+    }
+}
