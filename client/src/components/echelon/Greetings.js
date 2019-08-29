@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import Loader from '../layout/Loader'
 import Profile from './Profile'
+import News from './News'
 import { getCurrentProfile } from '../../actions/profile'
 
 const Greetings = ({ 
@@ -31,6 +32,7 @@ const Greetings = ({
                     </Fragment>
                 )}
         </Fragment>)}
+        <News />
     </Fragment>)
 }
 

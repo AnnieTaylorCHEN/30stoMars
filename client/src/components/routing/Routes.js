@@ -5,12 +5,11 @@ import Register from '../auth/Register'
 import Login from '../auth/Login'
 import Echelon from '../echelon/Echelon'
 // import Alert from '../layout/Alert'
-// import Dashboard from '../dashboard/Dashboard'
 import CreateProfile from '../echelon/CreateProfile'
 import EditProfile from '../echelon/EditProfile'
-// import EditProfile from '../profile-forms/EditProfile'
-// import Profiles from '../profiles/Profiles'
-// import Profile from '../profile/Profile'
+import AllProfiles from '../echelon/AllProfiles'
+import Discussion from '../echelon/Discussion'
+import EditPost from '../echelon/EditPost'
 // import Posts from '../posts/Posts'
 // import Post from '../post/Post'
 import NotFound from '../layout/NotFound'
@@ -27,12 +26,10 @@ const Routes = () => {
                 <PrivateRoute exact path="/echelon" component ={Echelon} />
                 <PrivateRoute exact path="/echelon/create-profile" component={CreateProfile} />
                 <PrivateRoute exact path="/echelon/edit-profile" component={EditProfile} />
-               {/* <Route exact path="/echelon/profiles" component={Profiles} />
-                <Route exact path="/echelon/profile/:id" component={Profile} />
-                <PrivateRoute exact path="echelon/dashboard" component={Dashboard} />
-                
-                <PrivateRoute exact path="/echelon/edit-profile" component={EditProfile} />
-                <PrivateRoute exact path="/echelon/posts" component={Posts} />
+                <PrivateRoute exact path="/echelon/users" component={AllProfiles} />
+                <PrivateRoute exact path="/echelon/posts" component={Discussion} />
+                <PrivateRoute exact path="/echelon/edit-post" component={EditPost} />
+               {/* 
                 <PrivateRoute exact path="/echelon/posts/:id" component={Post} />*/}
                 <Route component={NotFound} />
             </Switch>

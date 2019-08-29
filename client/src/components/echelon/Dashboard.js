@@ -17,10 +17,11 @@ const Dashboard = ({
             <div className="dashboard">
                 <h1 className="dashboard__title">Welcome, {user && user.name}</h1>
                 <nav className="dashboard__nav">
+                    <Link  to="/echelon" className="btn">Mars News</Link>
                     <Link  to="/echelon/users" className="btn">Echelon</Link>
                     <Link to="/echelon/posts" className="btn">Discussion</Link>
                     <button className="btn " onClick={logout}>Logout</button>
-                    <button className="btn btn--danger" onCanPlay={deleteAccount}>Delete Account</button>
+                    <button className="btn btn--danger" onClick={deleteAccount}>Delete Account</button>
                 </nav>
             </div>
     </Fragment>)

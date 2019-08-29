@@ -7,6 +7,7 @@
 @import './dashboard.css';
 @import './greetings.css';
 @import './profile.css';
+@import './post.css';
 
 * {
     box-sizing: border-box;
@@ -80,7 +81,7 @@ li {
 
 /*button*/
 .btn {
-    width: 50%;
+    width: 30%;
     max-width: 250px;
     padding: 0.5rem 1rem;
     border: none;

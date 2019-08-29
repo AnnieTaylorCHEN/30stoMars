@@ -172,20 +172,20 @@ export const addComment = (postId, formData) => async dispatch => {
 }
 
 //edit comment 
-export const editComment = (postId, commentId) => async dispatch => {
-    try {
-        await axios.patch(`/echelon/posts/comment/${postId}/${commentId}`)
-        dispatch({
-            type: EDIT_COMMENT,
-            payload: res.data
-        })
-    } catch (error) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: error.response.statusText, status: error.response.status }
-        })
-    }
-}
+// export const editComment = (postId, commentId) => async dispatch => {
+//     try {
+//         await axios.patch(`/echelon/posts/comment/${postId}/${commentId}`)
+//         dispatch({
+//             type: EDIT_COMMENT,
+//             payload: res.data
+//         })
+//     } catch (error) {
+//         dispatch({
+//             type: POST_ERROR,
+//             payload: { msg: error.response.statusText, status: error.response.status }
+//         })
+//     }
+// }
 
 //delete comment
 export const deleteComment = (postId, commentId) => async dispatch => {
