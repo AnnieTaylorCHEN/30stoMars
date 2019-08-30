@@ -4,20 +4,18 @@ import { Route, Switch } from 'react-router-dom'
 import Register from '../auth/Register'
 import Login from '../auth/Login'
 import Echelon from '../echelon/Echelon'
-// import Alert from '../layout/Alert'
 import CreateProfile from '../echelon/CreateProfile'
 import EditProfile from '../echelon/EditProfile'
 import AllProfiles from '../echelon/AllProfiles'
 import Discussion from '../echelon/Discussion'
 import Post from '../echelon/Post'
-import NotFound from '../layout/NotFound'
 import PrivateRoute from '../routing/PrivateRoute'
+import NotFound from '../layout/NotFound'
 
 const Routes = () => {
 
     return (
         <section >
-        {/*<Alert />*/}
             <Switch>
                 <Route exact path="/echelon/register" component={Register} />
                 <Route exact path="/echelon/login" component={Login} />

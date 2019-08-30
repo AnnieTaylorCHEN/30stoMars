@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Navbar from './components/layout/Navbar'
+import NotFound from './components/layout/NotFound'
 import Home from './components/Home'
 import Story from './components/Story'
 import Shop from './components/Shop'
@@ -37,6 +38,7 @@ const App = () => {
                   <Route path="/story" component={Story} />
                   <Route path="/shop" component={Shop} />
                   <Route path="/echelon" component={Routes} />
+                  <Route component={NotFound} />
               </Switch>   
           </Router>
     </Provider>
