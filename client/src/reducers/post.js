@@ -42,7 +42,7 @@ export default function(state=initialState, action) {
         case EDIT_POST:
             return {
                 ...state,
-                post: payload,
+                posts: payload,
                 loading: false
             }
         case DELETE_POST:

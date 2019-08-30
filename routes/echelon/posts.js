@@ -91,8 +91,9 @@ router.patch('/:id', auth, [
         }
         //check text of the post and save
         post.text = req.body.text
-        post.save()
-        res.json(post)
+        await post.save()
+        const posts = await Post.find().sort({date: -1})
+        res.json(posts)
     } catch (error) {
         console.error(error.message)
         if (error.kind === 'ObjectId'){
@@ -236,7 +237,7 @@ router.patch('/comment/:id/:comment_id', auth, [
         }
         comment.text = req.body.text
         await post.save()
-        res.json(comment)
+        res.json(post.comments)
     } catch (error) {
         console.error(error.message)
         res.status(500).send('Server error')

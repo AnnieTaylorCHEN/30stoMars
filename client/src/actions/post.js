@@ -37,6 +37,7 @@ export const addPost = formData => async dispatch => {
             'Content-Type': 'application/json'
         }
     }
+
     try {
         const res = await axios.post('/echelon/posts', formData, config )
         dispatch({
@@ -69,13 +70,21 @@ export const getPost = id => async dispatch => {
 }
 
 //edit post by id 
-export const editPost = id => async dispatch => {
+export const editPost = (id, formData) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
     try {
-        const res = await axios.patch(`/echelon/posts/${id}`)
+        
+        const res = await axios.patch(`/echelon/posts/${id}`, formData, config)
+        
         dispatch({
             type: EDIT_POST,
             payload: res.data
         })
+        dispatch(setAlert('Post Updated', 'success'))
     } catch (error) {
         dispatch({
             type: POST_ERROR,
@@ -136,7 +145,7 @@ export const removeLike = id => async dispatch => {
 //get all the comments 
 export const getComments = (postId) => async dispatch => {
     try {
-        const res = await axios.get('/echelon/posts/comment/:id')
+        const res = await axios.get(`/echelon/posts/comment/${postId}`)
         dispatch({
             type: GET_COMMENTS,
             payload: res.data 
@@ -172,20 +181,26 @@ export const addComment = (postId, formData) => async dispatch => {
 }
 
 //edit comment 
-// export const editComment = (postId, commentId) => async dispatch => {
-//     try {
-//         await axios.patch(`/echelon/posts/comment/${postId}/${commentId}`)
-//         dispatch({
-//             type: EDIT_COMMENT,
-//             payload: res.data
-//         })
-//     } catch (error) {
-//         dispatch({
-//             type: POST_ERROR,
-//             payload: { msg: error.response.statusText, status: error.response.status }
-//         })
-//     }
-// }
+export const editComment = (postId, commentId, formData ) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    try {
+        const res = await axios.patch(`/echelon/posts/comment/${postId}/${commentId}`, formData, config)
+        dispatch({
+            type: EDIT_COMMENT,
+            payload: res.data
+        })
+        dispatch(setAlert('Comment Updated', 'success'))
+    } catch (error) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: error.response.statusText, status: error.response.status }
+        })
+    }
+}
 
 //delete comment
 export const deleteComment = (postId, commentId) => async dispatch => {

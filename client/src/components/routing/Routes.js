@@ -9,9 +9,7 @@ import CreateProfile from '../echelon/CreateProfile'
 import EditProfile from '../echelon/EditProfile'
 import AllProfiles from '../echelon/AllProfiles'
 import Discussion from '../echelon/Discussion'
-import EditPost from '../echelon/EditPost'
-// import Posts from '../posts/Posts'
-// import Post from '../post/Post'
+import Post from '../echelon/Post'
 import NotFound from '../layout/NotFound'
 import PrivateRoute from '../routing/PrivateRoute'
 
@@ -28,9 +26,7 @@ const Routes = () => {
                 <PrivateRoute exact path="/echelon/edit-profile" component={EditProfile} />
                 <PrivateRoute exact path="/echelon/users" component={AllProfiles} />
                 <PrivateRoute exact path="/echelon/posts" component={Discussion} />
-                <PrivateRoute exact path="/echelon/edit-post" component={EditPost} />
-               {/* 
-                <PrivateRoute exact path="/echelon/posts/:id" component={Post} />*/}
+                <PrivateRoute exact path="/echelon/posts/:id" component={Post} />
                 <Route component={NotFound} />
             </Switch>
         </section>

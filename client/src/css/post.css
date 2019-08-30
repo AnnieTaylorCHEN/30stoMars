@@ -37,6 +37,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    margin-bottom: 1em;
 }
 
 .post-item__meta {
@@ -75,6 +76,10 @@
     background-position: -2800px 0;
 }
 
+.heart.red {
+    background-position: -2800px 0;
+}
+
 .delete {
     font-size: 1.5rem;
     font-weight: bold;
@@ -82,9 +87,18 @@
     background-color: red;
 }
 
+.comment-item {
+    background-color:hsla(0, 0%, 96%, 0.7);
+}
+
+.form--edit {
+    width: 80%;
+}
+
+
 @media (max-width: 1025px) and (min-width: 601px) {
     .post-form {
-        padding: 1em 2em;
+        padding: 1em;
     }
 
     .posts-grid {
@@ -94,7 +108,7 @@
 
 @media (max-width: 600px) {
     .post-form {
-        padding: 1em;
+        padding: 1em ;
     }
 
     .post-form textarea {
@@ -120,5 +134,9 @@
 
     .post-item__meta {
         margin: 0;
+    }
+
+    .form--edit {
+        width: 100%;
     }
 }

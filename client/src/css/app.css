@@ -43,6 +43,9 @@ li {
     list-style: none;
 }
 
+textarea  {
+    resize: none;
+}
 /*loader*/
 .loader {
     display: flex;
@@ -69,6 +72,7 @@ li {
 /*Alert msg*/
 .alert {
     font-size: 1.5em;
+    text-align: center;
 }
 
 .alert--danger {

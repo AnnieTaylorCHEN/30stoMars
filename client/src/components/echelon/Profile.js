@@ -35,8 +35,7 @@ const Profile = ({
                             </div>
                          </Fragment>
                      )}
-                </Fragment>)}
-            
+                </Fragment>)}      
         </Fragment>
     )
 }

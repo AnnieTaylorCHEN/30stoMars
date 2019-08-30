@@ -17,7 +17,6 @@ const PostForm = ({ addPost }) => {
     }
     return (
         <Fragment>
-            <Alert />
             <div className="post-form">
                 <h3>Start a topic</h3>
                 <form className="form" onSubmit={onSubmit}>
@@ -33,6 +32,7 @@ const PostForm = ({ addPost }) => {
                     <input type="submit" className="btn" value="OK, post it!" />
                 </form>
             </div>
+            <Alert />
         </Fragment>
     )
 }
