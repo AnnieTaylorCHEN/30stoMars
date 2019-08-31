@@ -8,8 +8,8 @@ const stripeSecretKey = config.get('STRIPE_SECRET_KEY')
 const stripePublicKey = config.get('STRIPE_PUBLIC_KEY')
 const stripe = require('stripe')(stripeSecretKey)
 
-//route: GET /store
-//note: get all the products on store page
+//route: GET /shop
+//note: get all the products on shop page
 //access: public
 
 router.get('/', async (req, res) => {
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
         } else {
             items = await Product.find({category: req.query.category})
         }
-        //sortby price and letter
+        //sort by price and letter
         if(req.query.sortBy) {
             let sort ={}
             const sortByArray = req.query.sortBy.split(':')
