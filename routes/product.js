@@ -5,7 +5,7 @@ const config = require('config')
 const Product = require('../models/Product')
 
 const stripeSecretKey = config.get('STRIPE_SECRET_KEY')
-const stripePublicKey = config.get('STRIPE_PUBLIC_KEY')
+
 const stripe = require('stripe')(stripeSecretKey)
 
 //route: GET /shop
@@ -37,33 +37,62 @@ router.get('/', async (req, res) => {
     }
 })
 
-// router.post('/purchase', async (req, res) => {
-//     let items
-//     try {
-//         items = await Product.find()
-//     } catch (error) {
-//         items = []
-//         console.error(error.message)
-//         res.status(500).send('Server error')
-//     }
-//     let total = 0
-//     req.body.items.forEach((item) => {
-//             const itemFromDatabase = items.find((i) => i.id == item.id)
-//             total = total + Math.round(itemFromDatabase.price * 100) * item.quantity   
-//         })
+//route: POST /shop/checkout
+//note: pay via stripe
+//access: public
+
+router.post('/checkout', async (req, res) => {
+    // console.log('request:', req.body)
+
+    let status
+    let error
+
+    try {
+        const items = await Product.find()
+        let total = 0
         
-//         stripe.charges.create({
-//             amount: total,
-//             source: req.body.stripeTokenId,
-//             currency: 'usd'
-//         }).then(() => {
-//             console.log('charge successful')
-//             res.json({message:'Thank you for your purchase!'})
-//         }).catch((error)=> {
-//             console.log('charge fail' + error)
-//             res.status(500).end()
-//         })
-// })
+        req.body.cart.forEach((cartItem) => {
+            const itemsFromDatabase = items.filter((item) => item._id === cartItem._id)
+            total = total + Math.round(itemsFromDatabase.price * 100) * cartItem.count
+            console.log(itemsFromDatabase)
+        })
+        
+        const { cart, token } = req.body;
+
+        const customer = await stripe.customers.create({
+            email: token.email,
+            source: token.id
+        })
+
+        const charge = await stripe.charges.create({
+              amount: total,
+              currency: 'usd',
+              customer: customer.id,
+              receipt_email: token.email,
+              description: `Purchased the ${cart}`,
+              shipping: {
+                name: token.card.name,
+                address: {
+                  line1: token.card.address_line1,
+                  line2: token.card.address_line2,
+                  city: token.card.address_city,
+                  country: token.card.address_country,
+                  postal_code: token.card.address_zip
+                }
+              }
+            })
+
+        console.log('Charge: ', {charge})
+        status = 'success'
+
+    } catch (error) {
+        console.error(error.message)
+        status = 'fail'
+        res.status(500).send('Server error')
+    }
+
+    res.json({ error, status })
+})
 
 
 module.exports = router

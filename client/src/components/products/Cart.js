@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
 
 import { updateItemCount, removeFromCart } from '../../actions/cart'
 
@@ -37,6 +39,23 @@ const Cart = ({
         return subTotal
     }
 
+    const handleToken = async (token, address) => {
+        try {
+            const res = await axios.post('/shop/checkout', { token, cart })
+            console.log(res)
+            const { status } = res.data
+            if (status === 'success') {
+                alert('Thank you for the purchase!')
+            } else {
+                alert('Sorry, something went wrong.' + { type: 'error'})
+            }
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+
+    
     return (
         <div id="cart" className={visibility} >
             <div className="cart-grid">
@@ -58,6 +77,7 @@ const Cart = ({
                             </div>
                             <div>
                                 <button type="button" className="cart-delete-btn" onClick={()=> removeFromCart(cartItem._id)} >&times;</button>
+                                
                             </div>
                         </div>    
                     </Fragment>))}
@@ -66,7 +86,15 @@ const Cart = ({
                 <div className="cart-grid__total">
                     <h4>CART TOTAL</h4>
                     <p>${cartTotal(cart)}</p>
-                    <button type="button" className="btn">Checkout</button>
+                    <div>
+                        <StripeCheckout
+                            stripeKey="pk_test_IdlFKP8IhcQrBWz2JslGjvF5"
+                            token={handleToken}
+                            amount={cartTotal(cart) * 100}
+                            billingAddress
+                            shippingAddress
+                        />
+                    </div>
                 </div>
 
                 <button type="button" className="back-to-shop" onClick={toggleCartButton} >&times;</button>

@@ -17,6 +17,7 @@ app.use('/echelon/profile', require('./routes/echelon/profile'))
 app.use('/echelon/posts', require('./routes/echelon/posts'))
 app.use('/shop', require('./routes/product'))
 
+
 //serve static assets in production
 if (process.env.NODE_ENV === 'production') {
     //set static folder

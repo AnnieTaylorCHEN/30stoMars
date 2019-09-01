@@ -126,6 +126,20 @@
     cursor: pointer;
 }
 
+.StripeCheckout {
+    background: black !important;
+    border-radius: 0px !important;
+    outline: none;
+    margin-top: 1em;
+}
+
+.StripeCheckout span {
+    background-image: none !important;
+    background-color: black !important;
+    border-radius: 0px !important;
+    font-family: inherit !important;
+}
+
 #cart.show {
     clip-path: circle(2500px at -15% -15%);
     -webkit-clip-path: circle(2500px at -15% -15%);
