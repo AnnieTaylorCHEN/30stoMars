@@ -18,14 +18,23 @@ const Cart = ({
         visibility = 'show'
     }
 
-    const addCount = ({_id}) => {
+    const addCount = (_id) => {
         let count = 1 
         updateItemCount({_id, count})
     }
  
-    const minusCount = ({_id}) => {
+    const minusCount = (_id) => {
         let count = -1 
         updateItemCount({_id, count})
+    }
+
+    const cartTotal = (cart) => {
+       const total = cart.reduce((acc, item) => {
+            acc += item.price * item.count
+            return acc
+        }, 0)
+        const subTotal = Math.round(total * 100) / 100
+        return subTotal
     }
 
     return (
@@ -34,30 +43,29 @@ const Cart = ({
                 <div className="cart-grid__details-wrapper">
                 {cart.map(cartItem => (
                     <Fragment key={cartItem._id}>
-                    <div className="cart-grid__details">
-                        <div className="cart-img">
-                            <img  src={`/imgs/${cartItem.imgName}`} alt={cartItem.name} />
-                        </div>
-                        <div>
-                            <h6>{cartItem.name}</h6>
-                            <p>${cartItem.price}</p>
-                        </div>
-                        <div className="cart-qty"> 
-                            <img src="/imgs/minus.svg" alt="remove 1 quantity" onClick={() => minusCount(cartItem._id)}/>
-                            <p>{cartItem.count}</p>
-                            <img src="/imgs/plus.svg" alt="add 1 quantity" onClick={() => addCount(cartItem._id)} />
-                        </div>
-                        <div>
-                            <button type="button" className="cart-delete-btn" onClick={()=>removeFromCart(cartItem._id)} >&times;</button>
-                        </div>
-                    </div>
-                    </Fragment>
-                ) )}
+                        <div className="cart-grid__details">
+                            <div className="cart-img">
+                                <img  src={`/imgs/${cartItem.imgName}`} alt={cartItem.name} />
+                            </div>
+                            <div>
+                                <h6>{cartItem.name}</h6>
+                                <p>${cartItem.price}</p>
+                            </div>
+                            <div className="cart-qty"> 
+                                <img src="/imgs/minus.svg" alt="remove 1 quantity" onClick={()=> minusCount(cartItem._id)}/>
+                                <p>{cartItem.count}</p>
+                                <img src="/imgs/plus.svg" alt="add 1 quantity" onClick={()=>addCount(cartItem._id)} />
+                            </div>
+                            <div>
+                                <button type="button" className="cart-delete-btn" onClick={()=> removeFromCart(cartItem._id)} >&times;</button>
+                            </div>
+                        </div>    
+                    </Fragment>))}
                 </div>
-            
+                
                 <div className="cart-grid__total">
                     <h4>CART TOTAL</h4>
-                    <p>$2000</p>
+                    <p>${cartTotal(cart)}</p>
                     <button type="button" className="btn">Checkout</button>
                 </div>
 

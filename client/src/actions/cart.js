@@ -15,7 +15,7 @@ export const addToCart = ({ _id, name, price, imgName, count = 1}) => async disp
     }
 }
 
-export const removeFromCart = ({ _id }) => async dispatch =>  {
+export const removeFromCart = ( _id ) => async dispatch =>  {
     try {
         dispatch({
             type: DELETE_FROM_CART,

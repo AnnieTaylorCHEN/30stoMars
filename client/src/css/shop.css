@@ -91,6 +91,14 @@
     bottom: 1em;
     width: 4em;
     height: 4em;
+    z-index: 1;
+}
+
+.cart-btn span {
+    position: absolute;
+    top:-20%;
+    left: 30%;
+    font-size: 2em;
 }
 
 #cart {

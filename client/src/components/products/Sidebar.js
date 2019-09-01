@@ -1,13 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
     return (
-        <>
+        <div>
             <section className="shop-sidebar">
                 <div className="shop-sidebar__item">
+                    <h4><a href="/shop" >Everything</a></h4>
+                </div>
+                <div className="shop-sidebar__item">
                     <h4>Category</h4>
-                    <Link to="/shop?category=music" >MUSIC</Link>
+                    <a href="/shop?category=music" >MUSIC</a>
                     <a href="/shop?category=merch" >MERCH</a> 
                 </div>
                 <div className="shop-sidebar__item">
@@ -21,7 +23,7 @@ export default function Sidebar() {
                     <a href="/shop?sortBy=name:desc" >Z to A</a>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

@@ -72,7 +72,7 @@ const CommentItem = ({
                         <button type="button" onClick={() => editCommentButton()} className="post-item__meta-item">
                         Edit
                         </button> 
-                        <button onClick={e => deleteComment(postId, _id)} type="button" className="post-item__meta-item delete">
+                        <button onClick={() => deleteComment(postId, _id)} type="button" className="post-item__meta-item delete">
                         &times;
                         </button>
                     </Fragment>
