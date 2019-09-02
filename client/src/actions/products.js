@@ -8,7 +8,7 @@ import {
 //get all the products
 export const getProducts = () => async dispatch => {
     try {
-        const res = await axios.get(`https://thirtysecondstomars.herokuapp.com/shop${window.location.search}`)
+        const res = await axios.get(`/shop${window.location.search}`)
         
         dispatch({
             type: GET_PRODUCTS,
