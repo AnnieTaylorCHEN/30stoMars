@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 
-import { updateItemCount, removeFromCart } from '../../actions/cart'
+import { updateItemCount, removeFromCart, emptyCart } from '../../actions/cart'
 
 
 const Cart = ({
@@ -12,6 +12,7 @@ const Cart = ({
     cartVisibility, 
     updateItemCount, 
     removeFromCart,
+    emptyCart,
     cart 
  }) => {
     let visibility = 'hide'
@@ -39,20 +40,26 @@ const Cart = ({
         return subTotal
     }
 
-    const handleToken = async (token, address) => {
+    const amount = cartTotal(cart) * 1000 / 10
+    
+    const handleToken = async (token, addresses) => {
+        const body = {
+            cart: cart,
+            token: token
+        }
         try {
-            const res = await axios.post('/shop/checkout', { token, cart })
-            console.log(res)
+            const res = await axios.post('/shop/checkout', body )
             const { status } = res.data
             if (status === 'success') {
                 alert('Thank you for the purchase!')
+                emptyCart()
+                toggleCartButton(false)
             } else {
-                alert('Sorry, something went wrong.' + { type: 'error'})
+                alert('Sorry, something went wrong.')
             }
         } catch (error) {
             console.log(error)
-        }
-        
+        } 
     }
 
     
@@ -90,9 +97,15 @@ const Cart = ({
                         <StripeCheckout
                             stripeKey="pk_test_IdlFKP8IhcQrBWz2JslGjvF5"
                             token={handleToken}
-                            amount={cartTotal(cart) * 100}
-                            billingAddress
+                            amount= {amount}
+                            description="Mars Products"
+                            image="https://http://thirtysecondstomars.herokuapp.com/imgs/mars-logo.png"
+                            locale="auto"
+                            currency="USD"
+                            name="Thirty Seconds to Mars"
+                            label="Checkout"
                             shippingAddress
+                            billingAddress
                         />
                     </div>
                 </div>
@@ -107,11 +120,12 @@ Cart.propTypes = {
     toggleCartButton: PropTypes.func.isRequired, 
     cart: PropTypes.array.isRequired,
     updateItemCount: PropTypes.func.isRequired,
-    removeFromCart: PropTypes.func.isRequired
+    removeFromCart: PropTypes.func.isRequired, 
+    emptyCart: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     cart: state.cart
 })
 
-export default connect(mapStateToProps, { updateItemCount, removeFromCart })(Cart)
+export default connect(mapStateToProps, { updateItemCount, removeFromCart, emptyCart })(Cart)

@@ -1,7 +1,8 @@
 import {
     ADD_TO_CART,
     DELETE_FROM_CART,
-    UPDATE_ITEM_COUNT
+    UPDATE_ITEM_COUNT, 
+    EMPTY_CART
 } from '../actions/types'
 
 const initialState = []
@@ -30,6 +31,8 @@ export default function (state=initialState, action) {
         case DELETE_FROM_CART:
             let indexToDel = findProductIndex(state, payload._id)
             return [...state.slice(0, indexToDel), ...state.slice(indexToDel+1)]
+        case EMPTY_CART:
+            return []
         default:
             return state
     }

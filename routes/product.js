@@ -42,34 +42,36 @@ router.get('/', async (req, res) => {
 //access: public
 
 router.post('/checkout', async (req, res) => {
-    // console.log('request:', req.body)
+    console.log('request:', req.body, ' END of request')
 
     let status
     let error
-
+    let items
+    let total = 0
     try {
-        const items = await Product.find()
-        let total = 0
-        
+        items = await Product.find()
         req.body.cart.forEach((cartItem) => {
-            const itemsFromDatabase = items.filter((item) => item._id === cartItem._id)
-            total = total + Math.round(itemsFromDatabase.price * 100) * cartItem.count
-            console.log(itemsFromDatabase)
-        })
+        const itemFromDatabase = items.find((item) => item._id == cartItem._id)
+        total = total + (itemFromDatabase.price * 1000 / 10) * cartItem.count
+        console.log(total)
+    })
+    } catch (error) {
+        console.log(error)
+    }
+    
+    try {     
+        const { token } = req.body
         
-        const { cart, token } = req.body;
-
         const customer = await stripe.customers.create({
             email: token.email,
             source: token.id
         })
 
-        const charge = await stripe.charges.create({
+        await stripe.charges.create({
               amount: total,
               currency: 'usd',
               customer: customer.id,
               receipt_email: token.email,
-              description: `Purchased the ${cart}`,
               shipping: {
                 name: token.card.name,
                 address: {
@@ -82,11 +84,11 @@ router.post('/checkout', async (req, res) => {
               }
             })
 
-        console.log('Charge: ', {charge})
+        console.log('Charge success:', 'customer is: ' + customer.email)
         status = 'success'
 
     } catch (error) {
-        console.error(error.message)
+        console.error('Charge fail: ' + error.message)
         status = 'fail'
         res.status(500).send('Server error')
     }
