@@ -16,5 +16,5 @@ Tech used:
 
 
 
-The app can be tested at:
+The app can be tested at: https://thirtysecondstomars.herokuapp.com/
 
