@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Sidebar() {
     return (
@@ -10,12 +11,12 @@ export default function Sidebar() {
                 <div className="shop-sidebar__item">
                     <h6>Category</h6>
                     <a href="/shop?category=music" >MUSIC</a>
-                    <a href="/shop?category=merch" >MERCH</a> 
+                    <Link to="/shop?category=merch" >MERCH</Link> 
                 </div>
                 <div className="shop-sidebar__item">
                     <h6>Price</h6>
                     <a href="/shop?sortBy=price:asc" > low to high</a>
-                    <a href="/shop?sortBy=price:desc"  > high to low</a>
+                    <Link href="/shop?sortBy=price:desc"  > high to low</Link>
                 </div>
                 <div className="shop-sidebar__item">
                     <h6>Alphabet</h6>

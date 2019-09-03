@@ -37,6 +37,9 @@ const App = () => {
                   <Route exact path="/" component={Home} />
                   <Route path="/story" component={Story} />
                   <Route path="/shop" component={Shop} />
+                  <Route path="/shop?category=music" component={Shop} />
+                  <Route path="/shop?category=merch" component={Shop} />
+                  <Route path="/shop?sortBy=price:asc" component={Shop} />
                   <Route path="/echelon" component={Routes} />
                   <Route component={NotFound} />
               </Switch>   
