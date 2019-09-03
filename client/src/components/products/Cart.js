@@ -48,7 +48,7 @@ const Cart = ({
             token: token
         }
         try {
-            const res = await axios.post('/shop/checkout', body )
+            const res = await axios.post('/store/checkout', body )
             const { status } = res.data
             if (status === 'success') {
                 alert('Thank you for the purchase!')

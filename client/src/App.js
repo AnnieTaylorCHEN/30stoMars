@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Story from './components/Story'
 import Shop from './components/Shop'
 import Routes from './components/routing/Routes'
+import Footer from './components/layout/Footer'
 
 //redux
 import { Provider } from 'react-redux'
@@ -40,6 +41,7 @@ const App = () => {
                   <Route path="/echelon" component={Routes} />
                   <Route component={NotFound} />
               </Switch>   
+              <Footer />
           </Router>
     </Provider>
   )

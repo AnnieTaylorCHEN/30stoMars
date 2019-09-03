@@ -8,7 +8,7 @@ const stripeSecretKey = config.get('STRIPE_SECRET_KEY')
 
 const stripe = require('stripe')(stripeSecretKey)
 
-//route: GET /shop
+//route: GET /store
 //note: get all the products on shop page
 //access: public
 
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-//route: POST /shop/checkout
+//route: POST /store/checkout
 //note: pay via stripe
 //access: public
 

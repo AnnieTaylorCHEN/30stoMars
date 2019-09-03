@@ -125,3 +125,9 @@ textarea  {
 .mb {
     margin-bottom: 1em;
 }
+
+/*Footer*/
+.footer__copyright {
+    color: gray;
+    text-align: right;
+}
