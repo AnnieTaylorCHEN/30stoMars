@@ -34,8 +34,13 @@ const Login = ({ login, isAuthenticated }) => {
             <Alert />
             <section className="echelon-register">
                 <h1 className="echelon-login__title">Welcome Echelon!</h1>
+                <div className="testaccount">
+                    <p>TEST ACCOUNT: test@mars.com</p>  
+                    <p>PASSWORD: test123abc</p>
+                </div>
                 
                 <div className="echelon-register__form">
+                    
                     <form className="form" onSubmit={onSubmit}>
                         <div className="form-input">
                             <input 
@@ -67,6 +72,7 @@ const Login = ({ login, isAuthenticated }) => {
                     <p>
                     Not in Echelon? <Link className="btn" to="/echelon/register">Become one!</Link>
                     </p>
+                    
                 </div>
             </section>
         </Fragment>
