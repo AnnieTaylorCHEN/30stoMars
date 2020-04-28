@@ -83,8 +83,7 @@ const Cart = ({
                                 <img src="/imgs/plus.svg" alt="add 1 quantity" onClick={()=>addCount(cartItem._id)} />
                             </div>
                             <div>
-                                <button type="button" className="cart-delete-btn" onClick={()=> removeFromCart(cartItem._id)} >&times;</button>
-                                
+                                <button type="button" className="cart-delete-btn" onClick={()=> removeFromCart(cartItem._id)} >&times;</button>      
                             </div>
                         </div>    
                     </Fragment>))}
@@ -92,7 +91,7 @@ const Cart = ({
                 
                 <div className="cart-grid__total">
                     <h4>CART TOTAL</h4>
-                    <p>${cartTotal(cart)}</p>
+                    <p><strong>${cartTotal(cart)}</strong></p>
                     <p>Credit card info for testing:</p>
                     <p><strong>4242 4242 4242 4242</strong></p>
                     <p>any time in the future such as <strong>09/99</strong>; CVV: <strong>123</strong> </p>
