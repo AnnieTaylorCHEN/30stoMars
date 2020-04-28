@@ -93,6 +93,9 @@ const Cart = ({
                 <div className="cart-grid__total">
                     <h4>CART TOTAL</h4>
                     <p>${cartTotal(cart)}</p>
+                    <p>Credit card info for testing:</p>
+                    <p><strong>4242 4242 4242 4242</strong></p>
+                    <p>any time in the future such as <strong>09/99</strong>; CVV: <strong>123</strong> </p>
                     <div>
                         <StripeCheckout
                             stripeKey="pk_test_IdlFKP8IhcQrBWz2JslGjvF5"
@@ -109,6 +112,7 @@ const Cart = ({
                         />
                     </div>
                 </div>
+                
 
                 <button type="button" className="back-to-shop" onClick={toggleCartButton} >&times;</button>
             </div>

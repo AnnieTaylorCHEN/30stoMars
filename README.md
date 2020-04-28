@@ -1,20 +1,18 @@
-Thirty Seconds to Mars
-==================
+# Thirty Seconds to Mars - a fan site for the band
 
-This is a medium-sized project to practise MERN stack. 
+![Screenshot of the site](./docs/images/thirtysecondstomars-screenshot.png)
 
-Tech used:
-* Node.js
-* Express.js
-* React
-* Redux
-* MongoDB
-* Gravatar
-* axios
-* uuid
-* Jsonwebtoken
+## Live demo 
+[Thirty Seconds to Mars](https://thirtysecondstomars.herokuapp.com/)
 
+## Tech and Micro-services used
+- Node.js (Express.js)
+- React
+- Redux
+- MongoDB
+- Gravatar
+- axios
+- uuid 
+- Jsonwebtoken
 
-
-The app can be tested at: https://thirtysecondstomars.herokuapp.com/
 
